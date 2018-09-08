@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0  Date: Wed Aug 19 13:12:25 2015
+#
+$CMP PUSH_BUTTON
+D Interrupteur simple
+K switch
+$ENDCMP
+#
+#End Doc Library

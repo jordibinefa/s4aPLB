@@ -1,0 +1,96 @@
+
+(rules PCB JXXIII
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 3870)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 200.0)
+    (clear 200.2)
+    (clear 100.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_940:500_um"
+    (shape
+      (circle F.Cu 940.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 940.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_940:0_um"
+    (shape
+      (circle F.Cu 940.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 940.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_940:500_um" "Via[0-1]_940:500_um" default
+  )
+  (via 
+    "Via[0-1]_940:0_um" "Via[0-1]_940:0_um" default
+  )
+  (via 
+    "Via[0-1]_940:500_um-kicad_default" "Via[0-1]_940:500_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_940:0_um-kicad_default" "Via[0-1]_940:0_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_940:500_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_940:500_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /AD0 /AD1 /AD2 /AD3 /AD4 /AD5 /AD6 /AD7
+    /IO0 /IO1 /IO2 /IO3 /IO4 /IO5 /IO6 /IO7
+    /IO8 /IO9 /MISO /MOSI /SCK /SS "/V_5V" "/V_SERVO"
+    GND "N-000001" "N-0000010" "N-0000011" "N-0000018" "N-0000019" "N-000002" "N-0000027"
+    "N-0000029" "N-0000031" "N-0000032" "N-0000033" "N-0000034" "N-0000035" "N-0000042" "N-000005"
+    "N-0000053" "N-0000058" "N-0000062" "N-000008"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
